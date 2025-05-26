@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styles from '../App.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Link } from 'react-router-dom';
 
 const Navbar: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -12,7 +13,9 @@ const Navbar: React.FC = () => {
   return (
     <nav className={styles.navbar}>
       <div className={styles.logo}>
+        <Link to='/' className={styles.logoLink}>
         <h1>DesignGuy Img</h1>
+        </Link>
       </div>
 
       <div className={styles.menuIcon} onClick={toggleMenu}>

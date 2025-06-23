@@ -1,5 +1,5 @@
 import React from 'react';
-import { Photo } from '../types/pexels.d'; 
+import { Photo } from '../types/pexels'; 
 import styles from '../App.module.css'; 
 import { Link } from 'react-router-dom';
 interface ImageCardProps {
@@ -11,7 +11,7 @@ const ImageCard: React.FC<ImageCardProps> = ({ photo }) => {
     <Link to={`/download/${photo.id}`} className={styles.link}>
     <div className={styles.imageCard}>
       <img
-        src={photo.src.medium}
+        src={photo.src.tiny}
         alt={photo.alt || `Photo by ${photo.photographer}`}
         className={styles.image}
       />

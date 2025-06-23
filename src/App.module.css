@@ -15,7 +15,7 @@
   z-index: 999;
   flex-wrap: wrap;
   justify-content: space-between;
-  gap: 120px;
+ gap: 10%;
   font-family: "Inter", sans-serif;
 
 
@@ -70,6 +70,7 @@
   border-radius: 6px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  
   font-family: 'Inter', sans-serif;
    white-space: nowrap;
 }
@@ -77,16 +78,11 @@
 .loginButton:hover {
   background-color:blue;
 }
-@media(max-width:1024px){
-  .navbar{
-    gap: 40px;
-  }
-}
 
 /* Responsive: Mobile */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .navbar {
-        padding: 0.75rem 1rem;
+        padding: 0.75rem 2rem;
         gap: 0;
     }
   .menuIcon {
@@ -117,11 +113,13 @@
         gap: 1rem;
         text-align: center;
         padding-bottom: 1rem;
+      
     }
 
     .list li {
         padding: 0.5rem 0;
         width: 100%;
+        
     }
 
 
@@ -136,6 +134,12 @@
   .loginButton {
         width: 90%;
         max-width: 300px;
+    }
+}
+@media (max-width:480px){
+  .navbar {
+        padding: 0.75rem 1rem;
+        gap: 0;
     }
 }
 
@@ -257,7 +261,7 @@
 .inputbox{
   width:100%;
   border-radius: 50px;
-  padding:20px 30px;
+  padding:23px 30px;
   font-size: 14px;
   border: none;
   color: grey;
@@ -302,6 +306,16 @@
         padding: 64px 48px;
         gap: 8px;
     }
+    .inputbox{
+  width:100%;
+  border-radius: 50px;
+  padding:23px 30px;
+  font-size: 14px;
+  border: none;
+  color: grey;
+  transition: 0.2s;
+  
+}
 
 }
 
@@ -357,27 +371,38 @@
   margin-top: 20px;
     
 }
+.inputbox{
+  width:100%;
+  border-radius: 50px;
+  padding:23px 30px;
+  font-size: 14px;
+  border: none;
+  color: grey;
+  transition: 0.2s;
+  
+}
 }
 
 @media (max-width: 480px) {
   .texts{
-    padding: 16px;
+    padding: 0px;
   }
   .texts h1 {
-    font-size: 32px;
+    font-size: 36px;
+    
   }
 
   .texts p {
+    font-size: 16px;
+  }
+  
+  .inputbox {
     font-size: 14px;
   }
 
-  .inputbox {
-    font-size: 12px;
-  }
-
   .inputsubmit {
-    width: 36px;
-    height: 36px;
+    width: 45px;
+    height: 45px;
   }
 
   .image {
@@ -395,12 +420,12 @@
   gap: 16px;
   align-items: center;
   justify-content: center;
-  padding: 50px;
+  padding: 16px;
   padding-top: 0px;
-  margin-top: 0px;
+  margin-top: -35px;
 }
 .search{
-  max-width: 800px;
+  width: 100%;
   align-items: center;
   justify-content: center;
   margin: auto;
@@ -409,7 +434,7 @@
 .inputboxs{
   width:100%;
   border-radius: 50px;
-  padding:20px 30px;
+  padding:22px 30px;
   font-size: 14px;
   border: none;
   color: black;
@@ -439,8 +464,8 @@
 
 .inputsubmit{
   position: absolute;
-  width:30px;
-  height:30px;
+  width:40px;
+  height:40px;
   margin: 8px;
   border-radius: 50px;
   right: 0px;
@@ -450,6 +475,16 @@
   color: white;
   transition: 0.2s all;
    cursor: pointer;
+}
+.inputbox{
+  width:100%;
+  border-radius: 40px;
+  padding:21px 30px;
+  font-size: 14px;
+  border: none;
+  color: grey;
+  transition: 0.2s;
+  
 }
 
 }

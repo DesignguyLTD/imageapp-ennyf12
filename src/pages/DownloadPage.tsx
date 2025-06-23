@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import Navbar from '../components/Navbar';
+
 import styles from '../App.module.css';
 import { Photo } from '../types/pexels';
 
@@ -9,6 +9,9 @@ interface DownloadPageParams {
   imageId: string;
   [key: string]: string | undefined;
 }
+
+
+const PEXELS_API_KEY = process.env.REACT_APP_PEXELS_API_KEY;
 
 const DownloadPage: React.FC = () => {
   const { imageId } = useParams<DownloadPageParams>();
@@ -24,13 +27,20 @@ const DownloadPage: React.FC = () => {
         return;
       }
 
+
+      if (!PEXELS_API_KEY) {
+        setError("Pexels API key not found. Please set REACT_APP_PEXELS_API_KEY in your .env.local file.");
+        setLoading(false);
+        return;
+      }
+
       setLoading(true);
       setError(null);
 
       try {
         const response = await fetch(`https://api.pexels.com/v1/photos/${imageId}`, {
           headers: {
-            Authorization: 'wRALpeK2plHhnpf2aFEZGbAE0EdUEKIhgEq6O8yfCX8bf2DjwFxW1GWF',
+            Authorization: PEXELS_API_KEY, 
           },
         });
 
@@ -38,12 +48,13 @@ const DownloadPage: React.FC = () => {
           if (response.status === 404) {
             throw new Error(`Image with ID ${imageId} not found.`);
           }
-          throw new Error(`Failed to fetch image: ${response.statusText}`);
+          const errorData = await response.json();
+          throw new Error(`Failed to fetch image: ${errorData.error || response.statusText}`);
         }
 
         const data: Photo = await response.json();
         setImageData(data);
-      } catch (err: any) {
+      } catch (err: any) { 
         setError(err.message || 'An unknown error occurred while fetching image details.');
         console.error("Error fetching image details:", err);
       } finally {
@@ -124,11 +135,12 @@ const DownloadPage: React.FC = () => {
 
           <div className={styles.creatorInfo}>
             <div className={styles.creatorAvatar}>
+              {/* This src is empty in your original code. You might need a dynamic src or a placeholder. */}
               <img src="" alt="creator avatar" className={styles.creatorAvatar} />
             </div>
             <div className={styles.creatorDetails}>
               <h2>{imageData.photographer}</h2>
-              <p>43444+ Elements</p>
+              <p>43444+ Elements</p> {/* This is hardcoded, consider if it should be dynamic */}
             </div>
           </div>
 
@@ -152,9 +164,9 @@ const DownloadPage: React.FC = () => {
           <p className={styles.downloadFormats}>Download in PNG, and Eps or AI-Formats</p>
 
           <div className={styles.detailsCounts}>
-            <p><FontAwesomeIcon icon={['far', 'eye']} />45.23K</p>
-            <p><FontAwesomeIcon icon={['fas', 'download']} /> 19.23K</p>
-            <p><FontAwesomeIcon icon={['far', 'heart']} />19.23K</p>
+            <p><FontAwesomeIcon icon={['far', 'eye']} />45.23K</p> {/* Hardcoded */}
+            <p><FontAwesomeIcon icon={['fas', 'download']} /> 19.23K</p> {/* Hardcoded */}
+            <p><FontAwesomeIcon icon={['far', 'heart']} />19.23K</p> {/* Hardcoded */}
           </div>
 
           <button

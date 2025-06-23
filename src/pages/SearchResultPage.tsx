@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import Navbar from '../components/Navbar';
 import SearchBar from '../components/SearchBar';
 import ImageGrid from '../components/ImageGrid';
 import { useLocation, useNavigate } from 'react-router-dom';

@@ -15,7 +15,7 @@
   z-index: 999;
   flex-wrap: wrap;
   justify-content: space-between;
-  gap: 120px;
+ gap: 10%;
   font-family: "Inter", sans-serif;
 
 
@@ -32,7 +32,7 @@
   display: none;
   font-size: 1.8rem;
   cursor: pointer;
-  color: #054ef7;
+  color: #415AFE;
 }
 
 /* Nav list */
@@ -62,7 +62,7 @@
 
 /* Button */
 .loginButton {
-  background-color: blue;
+  background-color:#415AFE;
   color: white;
   padding: 10px 20px;
   border: none;
@@ -70,6 +70,7 @@
   border-radius: 6px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  
   font-family: 'Inter', sans-serif;
    white-space: nowrap;
 }
@@ -78,11 +79,10 @@
   background-color:blue;
 }
 
-
 /* Responsive: Mobile */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .navbar {
-        padding: 0.75rem 1rem;
+        padding: 0.75rem 2rem;
         gap: 0;
     }
   .menuIcon {
@@ -113,11 +113,13 @@
         gap: 1rem;
         text-align: center;
         padding-bottom: 1rem;
+      
     }
 
     .list li {
         padding: 0.5rem 0;
         width: 100%;
+        
     }
 
 
@@ -134,12 +136,18 @@
         max-width: 300px;
     }
 }
+@media (max-width:480px){
+  .navbar {
+        padding: 0.75rem 1rem;
+        gap: 0;
+    }
+}
 
 .hero{
   display: flex;
   flex-direction: column;
   gap: 80px;
-  background-color: #054ef7;
+  background-color: #415AFE;
   padding-top: 60px;
     padding-bottom: 60px;
     padding-left: 16px;
@@ -208,7 +216,7 @@
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   margin: auto;
   gap: 8px;
-  background-color: #054ef7;
+  background-color: #415AFE;
   padding: 30px 80px;
   max-width: 100%;
   margin-top: -2px;
@@ -253,7 +261,7 @@
 .inputbox{
   width:100%;
   border-radius: 50px;
-  padding:20px 30px;
+  padding:23px 30px;
   font-size: 14px;
   border: none;
   color: grey;
@@ -274,7 +282,7 @@
   right: 0px;
   border: none;
   font-size: 15px;
-  background-color: #054ef7;
+  background-color: #415AFE;
   color: white;
   transition: 0.2s all;
    cursor: pointer;
@@ -298,6 +306,16 @@
         padding: 64px 48px;
         gap: 8px;
     }
+    .inputbox{
+  width:100%;
+  border-radius: 50px;
+  padding:23px 30px;
+  font-size: 14px;
+  border: none;
+  color: grey;
+  transition: 0.2s;
+  
+}
 
 }
 
@@ -353,27 +371,38 @@
   margin-top: 20px;
     
 }
+.inputbox{
+  width:100%;
+  border-radius: 50px;
+  padding:23px 30px;
+  font-size: 14px;
+  border: none;
+  color: grey;
+  transition: 0.2s;
+  
+}
 }
 
 @media (max-width: 480px) {
   .texts{
-    padding: 16px;
+    padding: 0px;
   }
   .texts h1 {
-    font-size: 32px;
+    font-size: 36px;
+    
   }
 
   .texts p {
+    font-size: 16px;
+  }
+  
+  .inputbox {
     font-size: 14px;
   }
 
-  .inputbox {
-    font-size: 12px;
-  }
-
   .inputsubmit {
-    width: 36px;
-    height: 36px;
+    width: 45px;
+    height: 45px;
   }
 
   .image {
@@ -391,12 +420,12 @@
   gap: 16px;
   align-items: center;
   justify-content: center;
-  padding: 50px;
+  padding: 16px;
   padding-top: 0px;
-  margin-top: 0px;
+  margin-top: -35px;
 }
 .search{
-  max-width: 800px;
+  width: 100%;
   align-items: center;
   justify-content: center;
   margin: auto;
@@ -405,7 +434,7 @@
 .inputboxs{
   width:100%;
   border-radius: 50px;
-  padding:20px 30px;
+  padding:22px 30px;
   font-size: 14px;
   border: none;
   color: black;
@@ -441,11 +470,21 @@
   border-radius: 50px;
   right: 0px;
   border: none;
-  font-size: 15px;
-  background-color: #054ef7;
+  font-size: 12px;
+  background-color: #415AFE;
   color: white;
   transition: 0.2s all;
    cursor: pointer;
+}
+.inputbox{
+  width:100%;
+  border-radius: 40px;
+  padding:21px 30px;
+  font-size: 14px;
+  border: none;
+  color: grey;
+  transition: 0.2s;
+  
 }
 
 }
@@ -467,57 +506,52 @@
 .imageCard {
   border: 1px solid #eee;
   border-radius: 8px;
-  overflow: hidden; /* Ensures image corners are rounded within the card */
+  overflow: hidden; 
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   background-color: #fff;
   display: flex;
   flex-direction: column;
   height: 100%; 
-  transition: transform 0.2s ease-in-out; /* Smooth hover effect */
+  transition: transform 0.2s ease-in-out; 
 }
 
-/* Hover effect for the card */
+
 .imageCard:hover {
-  transform: translateY(-5px); /* Lifts the card slightly */
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* More pronounced shadow on hover */
+  transform: translateY(-5px); 
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); 
 }
 
-/* The image itself */
 .image {
   width: 100%;
-  height: 200px; /* Fixed height for consistency in the grid */
-  object-fit: cover; /* Covers the area, cropping if necessary */
-  display: block; /* Removes extra space below image */
+  height: 200px; 
+  object-fit: cover; 
+  display: block; 
 }
-
-/* Container for text content below the image */
 .textContainer {
   padding: 0.75rem;
   font-size: 0.9rem;
   color: #555;
-  flex-grow: 1; /* Allows this section to take up available space */
+  flex-grow: 1; 
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* Pushes photographer link to bottom */
+  justify-content: space-between; 
 }
 
-/* Paragraph for alt text/image description */
+
 .description {
   margin: 0 0 0.5rem 0;
   font-weight: bold;
-  white-space: nowrap; /* Prevents text from wrapping */
-  overflow: hidden; /* Hides overflowing text */
-  text-overflow: ellipsis; /* Adds "..." for overflowing text */
+  white-space: nowrap; 
+  overflow: hidden; 
+  text-overflow: ellipsis; 
 }
 
-/* Paragraph for photographer info */
+
 .photographerInfo {
   margin: 0;
   font-size: 0.8rem;
   color: #777;
 }
-
-/* Link for photographer URL */
 .photographerLink {
   color: #007bff;
   text-decoration: none;
@@ -525,8 +559,8 @@
 }
 
 .photographerLink:hover {
-  color: #0056b3; /* Darker blue on hover */
-  text-decoration: underline; /* Underline on hover */
+  color: #0056b3; 
+  text-decoration: underline; 
 }
 
 
@@ -738,7 +772,7 @@
 
 .downloadButton {
     padding: 12px 25px;
-    background-color: #4a00e0;
+    background-color:#3431FC;
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -834,13 +868,13 @@ color:inherit;
     }
     .leftSection,
     .rightSection {
-        width: 70%; /* Both take full width */
-        min-width: unset; /* Remove min-width constraint */
-        max-width: unset; /* Remove max-width constraint */
+        width: 70%;
+        min-width: unset; 
+        max-width: unset; 
     }
     .rightSection {
-        max-height: unset; /* Ensure it expands to fit content */
-        padding: 15px; /* Adjust padding */
+        max-height: unset;
+        padding: 15px; 
     }
 
     .rightSectionTitle {
@@ -849,15 +883,15 @@ color:inherit;
     }
 
     .creatorDetails h2 {
-        font-size: 16px; /* 1em */
+        font-size: 16px; 
     }
 
     .productInfo h2 {
-        font-size: 18px; /* 1.125em */
+        font-size: 18px; 
     }
 
     .downloadButton {
-        font-size: 16px; /* 1em */
+        font-size: 16px;
         padding: 10px 20px;
         width: 60%;
         align-items: center;
@@ -883,9 +917,9 @@ color:inherit;
     }
     .leftSection,
     .rightSection {
-        width: 84%; /* Both take full width */
-        min-width: unset; /* Remove min-width constraint */
-        max-width: unset; /* Remove max-width constraint */
+        width: 84%; 
+        min-width: unset; 
+        max-width: unset; 
     }
 
     .creatorAvatar {
@@ -944,4 +978,13 @@ color:inherit;
         width: 70px;
         font-size: 12px;
     }
+  }
+
+.logoLink{
+  text-decoration: none;
+}
+
+.loading{
+  display:flex;
+  flex-direction: center;
 }

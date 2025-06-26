@@ -1,5 +1,5 @@
 import React from 'react';
-import { Photo } from '../types/pexels.d';
+import { Photo } from '../types/pexels';
 import ImageCard from './ImageCard';
 import styles from '../App.module.css'; 
 

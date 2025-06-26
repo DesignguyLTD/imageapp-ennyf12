@@ -5,13 +5,11 @@ import Hero from './components/Hero';
 import AssetCategories from './components/AssetCategories';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import SearchResultPage from './pages/SearchResultPage';
-import { ImageProvider } from './context/ImageContext';
 import DownloadPage from './pages/DownloadPage';
-
 function App() {
   return (
     <Router>
-      <ImageProvider>
+      
     <div className="App">
       <Navbar/>
       <Routes>
@@ -25,15 +23,16 @@ function App() {
               </>
             }
           />
-          <Route path="/search/:queryParam" element={
+         <Route path="/search/:queryParam" element={
             <>
             <SearchResultPage />
             </>
             } />
+            
           <Route path="/download/:imageId" element={<DownloadPage />} />
       </Routes>
     </div>
-    </ImageProvider>
+
     </Router>
   );
 }

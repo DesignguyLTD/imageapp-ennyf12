@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useCallback } from 'react';
 import { Photo, PexelsSearchResponse } from '../types/pexels';
 
 interface UsePexelsApiResult {
@@ -10,6 +10,7 @@ interface UsePexelsApiResult {
   hasMore: boolean;
   currentQuery: string;
   currentPage: number;
+  totalResults: number;
 }
 
 const PEXELS_API_KEY = process.env.REACT_APP_PEXELS_API_KEY;
@@ -107,6 +108,7 @@ const usePexelsApi = (): UsePexelsApiResult => {
     hasMore,
     currentQuery: query,
     currentPage: page,
+    totalResults,
   };
 };
 

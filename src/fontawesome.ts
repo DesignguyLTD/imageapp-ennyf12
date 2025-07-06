@@ -3,7 +3,7 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { faBars, faTimes, faHome, faPlusCircle } from '@fortawesome/free-solid-svg-icons';
 import { faFacebook, faTwitter } from '@fortawesome/free-brands-svg-icons';
 import { faCaretSquareDown, faEye, faHeart, faShareSquare, faCopy } from '@fortawesome/free-regular-svg-icons';
-import { faDownload, faLayerGroup, faCaretDown } from '@fortawesome/free-solid-svg-icons';
+import { faDownload, faLayerGroup, faCaretDown, faEyeLowVision } from '@fortawesome/free-solid-svg-icons';
 
 
 library.add(
@@ -20,6 +20,7 @@ library.add(
   faDownload,
   faLayerGroup,
   faCaretDown,
-  faCopy
+  faCopy,
+  faEyeLowVision
   
 );

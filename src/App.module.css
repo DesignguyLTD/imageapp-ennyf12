@@ -988,3 +988,349 @@ color:inherit;
   display:flex;
   flex-direction: center;
 }
+
+
+.form{
+  background-color: #d9d9d9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  
+}
+
+.forms{
+  background-color: #ffffff;
+  padding: 8px 48px;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 350px;
+  margin: 50px auto;
+  align-items: center;
+  height: 120vh;
+  
+}
+.formslog{
+  background-color: white;
+  padding: 8px 48px;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 350px;
+  margin: auto;
+  align-items: center;
+  height: 90vh;
+  
+}
+.signuph2{
+  font-size: 24px;
+  font-weight: 600;
+   text-align: center;
+   margin-top: 12px;
+}
+.signuph3{
+  margin-top: 24px;
+  font-size: 24px;
+  font-weight: 600;
+   text-align: center;
+}
+.space{
+  margin:16px auto;
+  margin-top: 0px;
+}
+.username{
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  color: #555;
+  margin-bottom: 8px;
+  margin-top: 16px;
+}
+.username_input{
+margin-top: 4px;
+display: block;
+width: 90%;
+padding: 14px 16px;
+border: 1px solid gray;
+border-radius: 8px;
+color: #807f7f; 
+font-size: 12px;
+background-color: white;
+}
+.username_input:hover{
+  border: 1px solid gray;
+}
+.username_input::placeholder { 
+    color: #c4c3c3; 
+    opacity: 1;    
+  }
+  .username_input:focus {
+  border: 1px solid #007bff; 
+  outline: none; 
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  background-color: white;
+}
+
+.signup{
+  width: 80%;
+  background-color: #415AFE;
+  color: white;
+  padding: 11px 16px;
+  border-radius: 16px;
+  font-weight: 600;
+  font-size: 18px;
+  text-align: center;
+  margin: 40px auto;
+  border: none;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  
+}
+.signup:hover{
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+.signup1{
+  width: 80%;
+  background-color: #415AFE;
+  color: white;
+  padding: 11px 16px;
+  border-radius: 16px;
+  font-weight: 600;
+  font-size: 18px;
+  text-align: center;
+  margin: 32px auto;
+  border: none;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  
+}
+.signup1:hover{
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+.already{
+  text-align: center;
+  color: gray;
+  margin-top: 0px;
+  font-size: 15px;
+}
+.logintext{
+  color: #3431FC;
+  text-decoration: none;
+}
+.logintext:hover{
+  text-decoration: underline;
+}
+
+
+
+
+/* src/components/LoginForm/LoginForm.module.css */
+
+.loginFormContainer {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  font-family: Arial, sans-serif; /* Added for general font */
+}
+
+h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.formGroup {
+  margin-bottom: 15px;
+}
+
+.formGroup label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #555;
+}
+
+.formGroup input[type="email"],
+.formGroup input[type="password"] {
+  width: calc(100% - 22px); /* Account for padding + border */
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+.formGroup input[type="email"]:focus,
+.formGroup input[type="password"]:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.submitButton {
+  width: 100%;
+  padding: 12px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+  display: flex; /* To center content */
+  justify-content: center; /* To center content */
+  align-items: center; /* To center content */
+  gap: 8px; /* Space between text and spinner if present */
+}
+
+.submitButton:hover {
+  background-color: #0056b3;
+}
+
+.submitButton:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+  opacity: 0.7; /* Indicate disabled state */
+}
+
+.message {
+  margin-top: 15px;
+  padding: 10px;
+  border-radius: 4px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.message.error {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+.message.success {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+/* Optional: Basic spinner for loading state */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.spinner {
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top: 2px solid #fff;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 1s linear infinite;
+}
+
+@media (max-width:500px) {
+  .forms{
+    margin:16px;
+    height: 130vh;
+    padding: 20px;
+  }
+  .formslog{
+    margin: 16px;
+    padding: 24px;
+    border-radius: 8px;
+     height: 100vh;
+  }
+  .username_input{
+    width:90%
+  }
+  .signup1{
+    width: 90%;
+  }
+}
+
+.logoLinks{
+  font-size: 32px;
+  text-align: center;
+  color: #0056b3;
+}
+
+.forgotPasswordContainer {
+  text-align: right;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+}
+.forgotPasswordLink {
+  color: #3b82f6;
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: color 0.2s ease, text-decoration 0.2s ease;
+}
+.forgotPasswordLink:hover {
+  color: #2563eb;
+  text-decoration: underline;
+}
+
+
+
+.passwordGroupContainer {
+  margin-top: 1rem;
+}
+
+.passwordInputWrapper {
+  position: relative;
+  width: 93%;
+}
+
+.passwordInputWithPadding {
+  padding-right: 2.5rem !important;
+}
+
+.passwordToggleButtonInWrapper {
+  position: absolute;
+  right: -0.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #0a2e76;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  outline: none;
+  transition: color 0.2s ease;
+}
+
+.passwordToggleButtonInWrapper:hover {
+  color: #0659df;
+}
+
+
+@media(max-width:375px){
+  .passwordInputWrapper {
+  position: relative;
+  width: 88%;
+}
+.passwordInputWithPadding {
+  padding-right: 2.5rem !important;
+}
+.passwordToggleButtonInWrapper {
+  position: absolute;
+  right: -1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #0a2e76;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  outline: none;
+  transition: color 0.2s ease;
+}
+}

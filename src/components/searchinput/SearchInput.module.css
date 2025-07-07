@@ -1,0 +1,93 @@
+.searchInputContainer {
+  display: flex;
+  align-items: center;
+  width: 600px;
+  max-width: 100%;
+  min-height: 50px;
+  background-color: white;
+  border-radius: 32px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  padding-left: 20px;
+  box-sizing: border-box;
+  padding: 8px 16px;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+
+  /* NEW: Add a default transparent border and transition for smooth effects */
+  border: 1px solid transparent; /* Start with a transparent border */
+  transition: border-color 0.2s ease, box-shadow 0.2s ease; /* Smooth transition for hover/focus */
+}
+
+/* NEW: Hover state for the entire search input container */
+.searchInputContainer:hover {
+  border-color: #a0c4ff; /* A light blue border on hover */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Slightly more pronounced shadow on hover */
+}
+
+/* NEW: Active/Focus state for the entire search input container */
+/* This applies when any element inside the container is focused (e.g., input field is typed into, or button is clicked) */
+.searchInputContainer:focus-within {
+  border-color: #007bff; /* Primary blue border when active/focused */
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25); /* Optional: A subtle glow/ring effect */
+}
+
+
+.inputField {
+  flex-grow: 1;
+  border: none;
+  outline: none; /* Remove default outline to use custom container border */
+  padding: 0;
+  font-size: 16px;
+  color: #333;
+}
+
+.inputField::placeholder {
+  color: #888;
+}
+
+/* We removed direct :focus styles from inputField because :focus-within on parent handles it */
+/* .inputField:focus { } */
+
+.searchButton {
+  flex-shrink: 0;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 18px;
+  background-color: #007bff;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 10px;
+  border: none;
+}
+
+@media (max-width: 768px) {
+  .searchInputContainer {
+    width: 90%;
+    min-height: 45px;
+    border-radius: 32px;
+    padding-left: 15px;
+    padding: 8px 8px ;
+  }
+
+  .inputField {
+    font-size: 15px;
+  }
+
+  .searchButton {
+    width: 45px;
+    height: 45px;
+    margin-left: 8px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .searchInputContainer {
+    width: 95%;
+  }
+}

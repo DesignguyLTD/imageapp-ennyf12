@@ -1,0 +1,128 @@
+/* src/components/NavBar/NavBar.module.css */
+
+/* --- Base Styles (Apply to all, primarily for Desktop > 1024px) --- */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  box-sizing: border-box;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbarLeft {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+/* Styles for the DESKTOP-ONLY navigation links */
+.navbarNavDesktop {
+  display: flex; /* Display as flex-row on desktop */
+  gap: 25px;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbarRight {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-shrink: 0;
+}
+
+/* On desktop, the hamburger icon is hidden */
+.menuIcon {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: #333;
+  padding: 5px;
+}
+
+/* On desktop, the mobile-only button (inside the dropdown) is hidden */
+.mobileOnlyButton {
+  display: none;
+}
+
+/* NEW: On desktop, the desktop-only button is visible */
+.desktopOnlyButton {
+  display: block; /* Visible on desktop */
+}
+
+
+/* --- Tablet and Mobile Styles (For screens smaller than 1024px) --- */
+@media (max-width: 1024px) {
+  .navbar {
+    padding: 10px 20px;
+    justify-content: space-between;
+  }
+
+  /* Hide the DESKTOP navigation links on tablet/mobile */
+  .navbarNavDesktop {
+    display: none; /* Crucial: Hides the desktop nav links */
+  }
+
+  /* The .navbarNav (mobile/tablet dropdown container) */
+  .navbarNav {
+    display: none; /* HIDE by default */
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+    border-top: 1px solid #eee;
+  }
+
+  /* Show the mobile menu when it has the 'open' class */
+  .navbarNav.open {
+    display: flex; /* SHOW when open */
+  }
+
+  /* Hide the desktop-only button on tablet/mobile */
+  .desktopOnlyButton {
+    display: none; /* Crucial: Hides the desktop button */
+  }
+
+  /* Make the hamburger icon visible on tablet/mobile */
+  .menuIcon {
+    display: block; /* SHOW the hamburger icon */
+  }
+
+  /* Style individual NavLinks within the mobile menu dropdown */
+  .navbarNav > .navLink {
+    width: 100%;
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+  }
+  .navbarNav > .navLink:last-child {
+    border-bottom: none;
+  }
+
+  /* Show the mobile-only button (inside the dropdown) */
+  .mobileOnlyButton {
+    display: block; /* SHOW the button inside the dropdown */
+    width: 100%;
+    margin-top: 15px;
+  }
+}
+
+/* Optional: Even smaller padding/font-sizes for very small mobile screens */
+@media (max-width: 767px) {
+  .navbar {
+    padding: 8px 15px;
+  }
+}

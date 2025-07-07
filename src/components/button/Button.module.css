@@ -1,0 +1,101 @@
+/* src/components/Button/Button.module.css */
+
+/* Base button styles */
+.button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Active state styles */
+.button:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+}
+
+/* Variant styles: These define default background colors for each variant */
+/* ... (primary, secondary, download styles as they currently are) ... */
+.primary {
+  background-color: #007bff; /* Default Blue */
+  color: white;
+}
+.primary:hover {
+  background-color: #0056b3;
+}
+.primary:active {
+  background-color: #004085;
+  transform: translateY(0.5px);
+}
+
+.secondary {
+  background-color: white; /* Default White */
+  color: #0056b3;
+  border: 1px solid #0056b3;
+}
+.secondary:hover {
+  background-color: #0056b3;
+  color: white;
+}
+.secondary:active {
+  background-color: #004085;
+  border-color: #004085;
+  transform: translateY(0.5px);
+}
+
+.download {
+  background-color: #28a745; /* Default Green */
+  color: white;
+  padding: 12px 25px;
+  font-weight: bold;
+}
+.download:hover {
+  background-color: #218838;
+}
+.download:active {
+  background-color: #1a6f2c;
+  transform: translateY(0.5px);
+}
+
+/* Size styles */
+/* ... (small, large styles as they currently are) ... */
+.small {
+  padding: 8px 15px;
+  font-size: 14px;
+}
+.large {
+  padding: 14px 30px;
+  font-size: 18px;
+}
+
+/* NEW: Disabled State Styles */
+.button:disabled, /* Target the disabled attribute */
+.button[disabled] { /* Also target the attribute directly for broader compatibility */
+  opacity: 0.6; /* Make it slightly transparent */
+  cursor: not-allowed; /* Change cursor to indicate no interaction */
+  background-color: #cccccc; /* Default grey background for disabled state */
+  color: #666666; /* Dark grey text */
+  box-shadow: none; /* Remove any shadows */
+  transform: none; /* Ensure no transforms (like hover/active) apply */
+  border-color: #aaaaaa; /* Adjust border color if applicable */
+}
+
+/* You might want to remove hover/active effects when disabled */
+.button:disabled:hover,
+.button[disabled]:hover,
+.button:disabled:active,
+.button[disabled]:active {
+  transform: none;
+  box-shadow: none;
+  filter: none; /* Remove any brightness changes */
+  /* Ensure the background and text color stay consistent with the disabled style */
+  background-color: #cccccc;
+  color: #666666;
+}

@@ -57,9 +57,12 @@
     "@storybook/addon-onboarding": "^9.0.15",
     "@storybook/preset-create-react-app": "^9.0.15",
     "@storybook/react-webpack5": "^9.0.15",
+    "autoprefixer": "^10.4.21",
     "eslint-plugin-storybook": "^9.0.15",
+    "postcss": "^8.5.6",
     "prop-types": "^15.8.1",
     "storybook": "^9.0.15",
+    "tailwindcss": "^4.1.11",
     "webpack": "^5.99.9"
   }
 }

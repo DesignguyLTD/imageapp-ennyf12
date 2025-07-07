@@ -1,0 +1,45 @@
+/* src/components/NavLink/NavLink.module.css */
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Space+Grotesk:wght@300..700&display=swap');
+
+.navLink {
+    font-family: 'Inter', sans-serif;
+  padding: 8px 15px;
+  text-decoration: none;
+  color: #333; /* Default text color */
+  font-size: 16px;
+  font-weight: 500;
+  display: flex; /* To align text and dropdown indicator */
+  align-items: center;
+  transition: color 0.2s ease, background-color 0.2s ease;
+  
+}
+
+.navLink:hover {
+  color: #0056b3; /* Darker text on hover */
+  
+}
+
+/* NEW: Styles for the selected (current page) state */
+.selected {
+  color: #1573d7; /* Primary blue for selected link */
+  font-weight: bold;
+ 
+}
+
+.selected:hover {  
+
+  color: #033468;
+}
+
+
+.dropdownIndicator {
+  margin-left: 5px;
+  font-size: 10px; /* Smaller arrow */
+  transform: scaleY(0.6); /* Make it look more like a dropdown icon */
+  transition: transform 0.2s ease;
+}
+
+/* Optional: Rotate dropdown indicator on hover/active, or when dropdown is open */
+/* .navLink:hover .dropdownIndicator {
+  transform: rotate(180deg);
+} */

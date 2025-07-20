@@ -1,8 +1,6 @@
-// src/components/Button/Button.stories.tsx
 
-import React from 'react';
 import Buttons from './Buttons';
-import type { Meta, StoryObj } from '@storybook/react-webpack5'; // Use your specific framework package
+import type { Meta, StoryObj } from '@storybook/react-webpack5';
 
 const meta: Meta<typeof Buttons> = {
   title: 'Components/Button',
@@ -31,9 +29,8 @@ const meta: Meta<typeof Buttons> = {
       control: 'color',
       description: 'Optional: Custom background color (overrides variant color).',
     },
-    // NEW: Add disabled to argTypes
     disabled: {
-      control: 'boolean', // This provides a checkbox in Storybook
+      control: 'boolean',
       description: 'If true, the button will be disabled and unclickable.',
     },
   },
@@ -42,9 +39,6 @@ const meta: Meta<typeof Buttons> = {
 export default meta;
 
 type Story = StoryObj<typeof Buttons>;
-
-// --- Individual Stories ---
-// ... (Your existing stories: Primary, Download, Secondary, CustomText, LargePrimary, CustomBackgroundColor, OverriddenDownloadButton) ...
 
 export const Primary: Story = {
   args: {
@@ -77,19 +71,10 @@ export const CustomText: Story = {
   },
 };
 
-
-
-
-
-
-
-// NEW STORY: Disabled State
 export const Disabled: Story = {
   args: {
     children: 'Disabled Button',
-    disabled: true, // Set disabled to true for this story
-    variant: 'primary', // Can still specify a variant, but disabled styles will override color
+    disabled: true,
+    variant: 'primary',
   },
 };
-
-// NEW STORY: Disabled Secondary Button

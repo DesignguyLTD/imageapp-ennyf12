@@ -1,0 +1,363 @@
+
+
+
+.downloadPage {
+    margin: 0;
+    padding: 0px;
+    background-color: #f9f9f9; 
+    min-height: 100vh; 
+    box-sizing: border-box;
+}
+
+
+.preview{
+  display: flex;
+  gap: 5%;
+  padding: 40px;
+  max-width: 1200px;
+  margin: 40px auto; 
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  flex-wrap: wrap; 
+  justify-content: center; 
+}
+
+
+.leftSection {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 60%; 
+    min-width: 300px; 
+}
+.mainImage {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+}
+.creatorInfo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 2px 0;
+}
+.creatorAvatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #ccc; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+.creatorAvatarImage { 
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background-color:black; 
+    color:black;
+}
+.creatorDetails {
+    line-height: 1.4;
+}
+.creatorDetails h2 {
+    margin: 0;
+    font-size: 1.2em;
+    color: #333;
+}
+.creatorDetails p {
+    margin: 0;
+    font-size: 0.9em;
+    color: #777;
+}
+.contentSection {
+    padding: 20px 0;
+}
+.productInfo {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.productInfo h2 {
+    margin: 0;
+    font-size: 1.5em;
+    color: #333;
+}
+.productInfo p {
+    margin: 0;
+    font-size: 0.9em;
+    color: #777;
+}
+.description {
+    font-size: 1em;
+    line-height: 1.6;
+    color: #555;
+}
+
+
+.rightSection {
+    padding: 20px;
+    background: #d7e7f99e; 
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap:16px;
+    width: 35%; 
+    max-width: 300px; 
+    max-height: 400px; 
+    flex-shrink: 0; 
+}
+.rightSectionTitle {
+    margin: 0;
+    font-size: 16px;
+    color: black;
+    line-height: 1.4;
+    padding: 24px 16px;
+    background-color:#ffffff;
+    border-radius: 16px;
+}
+.rightSectionSubtitle {
+    margin: 0;
+    font-size:15px;
+    color: #000;
+    font-weight: 500;
+}
+.downloadFormats {
+    margin: 0;
+    font-size: 13px;
+    margin-top: -12px; 
+}
+.detailsCounts {
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+    font-size: 0.9em;
+    color: #555;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    padding: 15px 0;
+}
+.detailsCounts p {
+    margin: 0;
+}
+.downloadButton {
+    padding: 12px 25px;
+    background-color:#3431FC;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+.downloadButton:hover {
+    background-color: #3a00b0;
+}
+.connectButtons {
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+    border-top: 1px solid #ddd;
+    padding-top: 15px;
+}
+.connectButtons p {
+    margin: 0;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    width: 90px;
+    padding:8px ;
+    background-color: white;
+    color:black;
+}
+
+
+.detailsCounts i,
+.connectButtons i {
+    font-style: normal; 
+    font-weight: bold;
+    color: #888;
+    font-size: 1.2em;
+}
+
+
+.loadingMessage, .errorMessage, .noDataMessage {
+  text-align: center;
+  font-size: 1.5em;
+  color: #333;
+  padding: 50px;
+}
+.errorMessage {
+  color: #d9534f;
+}
+.noDataMessage {
+  color: #555;
+}
+
+
+
+
+
+@media(max-width:468px){
+  .mainh1{
+    font-size: 20px;
+  }
+}
+@media (max-width: 1024px) {
+    .preview {
+        padding: 30px;
+        margin: 30px auto;
+        gap: 3%;
+    }
+
+    .leftSection {
+        width: 55%;
+    }
+    .rightSection {
+        width: 40%;
+        max-height: 400px;
+        min-width: 250px;
+    }
+
+    .creatorDetails h2 {
+        font-size: 17.6px;
+    }
+
+    .productInfo h2 {
+        font-size: 20px;
+    }
+    .rightSectionTitle {
+        font-size: 15px;
+        padding: 48px;
+    }
+ }
+
+ @media (max-width: 768px) {
+    .preview {
+        flex-direction: column;
+        padding: 20px;
+        margin: 20px auto;
+        gap: 20px;
+        max-width: 95%;
+        align-items: center;
+    }
+    .leftSection,
+    .rightSection {
+        width: 50%;
+        min-width: unset;
+        max-width: unset;
+    }
+    .rightSection {
+        max-height: unset;
+        padding: 15px;
+    }
+
+    .rightSectionTitle {
+        font-size: 15px;
+        padding: 48px;
+    }
+
+    .creatorDetails h2 {
+        font-size: 16px;
+    }
+
+    .productInfo h2 {
+        font-size: 18px;
+    }
+
+    .downloadButton {
+        font-size: 16px;
+        padding: 10px 20px;
+        width: 60%;
+        align-items: center;
+        margin: auto;
+        justify-content: center;
+    }
+
+    .detailsCounts,
+    .connectButtons {
+        padding: 10px 0;
+    }
+}
+
+ @media (max-width: 480px) {
+    .downloadPage {
+        padding: 0px;
+    }
+
+    .preview {
+        padding: 15px;
+        margin: 15px auto;
+        gap: 15px;
+    }
+    .leftSection,
+    .rightSection {
+        width: 84%;
+        min-width: unset;
+        max-width: unset;
+    }
+
+    .creatorAvatar {
+        width: 50px;
+        height: 50px;
+    }
+
+    .creatorDetails h2 {
+        font-size: 15px;
+    }
+
+    .creatorDetails p {
+        font-size: 13px;
+    }
+
+    .productInfo h2 {
+        font-size: 16px;
+    }
+
+    .productInfo p {
+        font-size: 13px;
+    }
+
+    .description {
+        font-size: 14px;
+    }
+
+    .rightSection {
+        padding: 20px;
+    }
+
+    .rightSectionTitle {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .rightSectionSubtitle {
+        font-size: 14px;
+    }
+
+    .downloadFormats {
+        font-size: 12px;
+    }
+
+    .detailsCounts,
+    .connectButtons {
+        font-size: 12px;
+    }
+
+    .downloadButton {
+        padding: 8px 15px;
+        font-size: 14px;
+    }
+
+    .connectButtons p {
+        width: 70px;
+        font-size: 12px;
+    }
+}

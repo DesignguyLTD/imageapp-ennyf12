@@ -1,19 +1,38 @@
-// src/components/ImageCard/ImageCard.stories.tsx
 
-import React from 'react';
 import ImageCard from './ImageCard';
 import type { Meta, StoryObj } from '@storybook/react-webpack5';
+import { Photo } from '../../types/pexels'; 
+
+
+const mockPhoto1: Photo = {
+  id: 100,
+  alt: 'Elegant brown leather briefcase with dark straps',
+  photographer: 'Photographer A',
+  src: {
+    tiny: 'https://via.placeholder.com/280x200/FF5733/FFFFFF?text=Card+A',
+    original: '', large2x: '', large: '', medium: '', small: '', portrait: '', landscape: '',
+  },
+  url: '', width: 0, height: 0, photographer_url: '', photographer_id: 0, avg_color: '', liked: false,
+};
+
+const mockPhoto2: Photo = {
+  id: 101,
+  alt: 'Stylish pastel handbags on pink and mint split background',
+  photographer: 'Photographer B',
+  src: {
+    tiny: 'https://via.placeholder.com/280x200/33FF57/000000?text=Card+B',
+    original: '', large2x: '', large: '', medium: '', small: '', portrait: '', landscape: '',
+  },
+  url: '', width: 0, height: 0, photographer_url: '', photographer_id: 0, avg_color: '', liked: false,
+};
 
 const meta: Meta<typeof ImageCard> = {
-  title: 'Components/ImageCard',
+  title: 'Search/ImageCard',
   component: ImageCard,
   tags: ['autodocs'],
   argTypes: {
-    imageUrl: { control: 'text', description: 'URL of the image for the card.' },
-    title: { control: 'text', description: 'Text overlay for category cards.' },
-    slogan: { control: 'text', description: 'Slogan text for branded cards.' },
-    onClick: { action: 'card clicked', description: 'Callback when the card is clicked.' },
-    isLoading: { control: 'boolean', description: 'If true, shows a loading placeholder instead of content.' },
+    photo: { control: 'object', description: 'Photo data object as expected by the component.' },
+   
   },
 };
 
@@ -21,60 +40,14 @@ export default meta;
 
 type Story = StoryObj<typeof ImageCard>;
 
-// --- Stories with more engaging default images ---
-
-export const CategoryCard: Story = {
+export const Default: Story = {
   args: {
-    // Replaced placeholder with a Picsum image, square format
-    imageUrl: 'https://picsum.photos/id/1015/250/250', // A landscape photo
-    title: 'Vector Creatives',
-    isLoading: false,
+    photo: mockPhoto1,
   },
 };
 
-export const IllustrationCard: Story = {
+export const AnotherImage: Story = {
   args: {
-    // Replaced placeholder with a Picsum image
-    imageUrl: 'https://picsum.photos/id/1025/250/250', // A dog photo
-    title: 'Illustrations',
-    isLoading: false,
-  },
-};
-
-export const BundlesCollectionsCard: Story = {
-  args: {
-    // Replaced placeholder with a Picsum image
-    imageUrl: 'https://picsum.photos/id/1018/250/250', // A forest/road photo
-    title: 'Bundles/Collections',
-    isLoading: false,
-  },
-};
-
-export const BrandedLogoCard: Story = {
-  args: {
-    // Replaced placeholder with a darker Picsum image more suitable for a logo overlay
-    imageUrl: 'https://picsum.photos/id/1041/250/250?grayscale', // Grayscale for a more logo-like feel
-    slogan: 'Mezzanine Slogan Here',
-    isLoading: false,
-  },
-};
-
-export const SimpleImagePreview: Story = {
-  args: {
-    // Replaced placeholder with a Picsum image
-    imageUrl: 'https://picsum.photos/id/1054/250/250', // A nature photo
-    isLoading: false,
-  },
-};
-
-export const LoadingState: Story = {
-  args: {
-    isLoading: true,
-  },
-  parameters: {
-    backgrounds: {
-      default: 'light',
-      values: [{ name: 'light', value: '#f8f8f8' }],
-    },
+    photo: mockPhoto2,
   },
 };

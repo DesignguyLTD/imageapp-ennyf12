@@ -1,7 +1,11 @@
+
+
 import React from 'react';
-import { Photo } from '../types/pexels';
-import ImageCard from './ImageCard';
-import styles from '../App.module.css'; 
+import { Photo } from '../../types/pexels';
+
+import ImageCard from '../imagecard/ImageCard';
+
+import styles from './ImageGrid.module.css';
 
 interface ImageGridProps {
   photos: Photo[];
@@ -13,6 +17,9 @@ interface ImageGridProps {
 }
 
 const ImageGrid: React.FC<ImageGridProps> = ({ photos, loading, error, loadMore, hasMore, currentQuery }) => {
+  
+  
+
   if (loading && photos.length === 0) {
     return <p className={styles.message}>Loading images for "{currentQuery}"...</p>;
   }
@@ -33,6 +40,8 @@ const ImageGrid: React.FC<ImageGridProps> = ({ photos, loading, error, loadMore,
       <div className={styles.imageGrid}>
         {photos.map(photo => (
           <ImageCard key={photo.id} photo={photo} />
+          
+          
         ))}
       </div>
 

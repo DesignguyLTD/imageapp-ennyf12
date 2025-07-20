@@ -1,11 +1,11 @@
 import React from 'react';
 import  './App.module.css';
-import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import AssetCategories from './components/AssetCategories';
+import Navbar from './components/navbar/NavBar';
+import Hero from './components/hero/Hero';
+import AssetCategories from './components/assetcategories/AssetCategories';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import SearchResultPage from './pages/SearchResultPage';
-import DownloadPage from './pages/DownloadPage';
+import SearchResultPage from './pages/searchresultpage/SearchResultPage';
+import DownloadPage from './pages/downloadpage/DownloadPage';
 function App() {
   return (
     <Router>
@@ -18,7 +18,7 @@ function App() {
             element={
               <> 
                 <Hero />
-                <AssetCategories />
+                <AssetCategories  />
                 
               </>
             }

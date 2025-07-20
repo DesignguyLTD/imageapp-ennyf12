@@ -1,4 +1,4 @@
-import React from 'react';
+
 import SearchInput from './SearchInput';
 import type { Meta, StoryObj } from '@storybook/react-webpack5';
 
@@ -10,7 +10,6 @@ const meta: Meta<typeof SearchInput> = {
     placeholder: { control: 'text', description: 'Placeholder text for the search input.' },
     initialValue: { control: 'text', description: 'Initial value of the search input.' },
     onSearch: { action: 'search initiated', description: 'Callback when the search button is clicked or Enter is pressed.' },
-    // NEW: Add isFocused to argTypes
     isFocused: { control: 'boolean', description: 'FOR STORYBOOK ONLY: Forces the search input to be in a focused state.' },
   },
   parameters: {
@@ -26,7 +25,7 @@ export const Default: Story = {
   args: {
     placeholder: 'Search for your images',
     initialValue: '',
-    isFocused: false, // Default to false
+    isFocused: false,
   },
 };
 
@@ -38,16 +37,13 @@ export const WithText: Story = {
   },
 };
 
-// NEW STORY: Focused State
 export const Focused: Story = {
   args: {
     placeholder: 'Searching...',
     initialValue: 'active search',
-    isFocused: true, // Force this story to be in a focused state
+    isFocused: true,
   },
 };
-
-// ... (MobileView and TabletView stories remain the same) ...
 
 export const MobileView: Story = {
   args: {

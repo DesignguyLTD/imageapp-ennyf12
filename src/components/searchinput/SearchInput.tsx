@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'; // NEW: import useRef
+import React, { useState, useEffect, useRef } from 'react';
 import styles from './SearchInput.module.css';
 import Buttons from '../button/Buttons';
 
@@ -6,26 +6,25 @@ interface SearchInputProps {
   placeholder?: string;
   initialValue?: string;
   onSearch?: (query: string) => void;
-  isFocused?: boolean; // NEW: Prop to force focus state for Storybook
+  isFocused?: boolean;
 }
 
 const SearchInput: React.FC<SearchInputProps> = ({
   placeholder = 'Search for your images',
   initialValue = '',
   onSearch,
-  isFocused = false, // Default to false
+  isFocused = false,
 }) => {
   const [query, setQuery] = useState(initialValue);
-  const inputRef = useRef<HTMLInputElement>(null); // NEW: Create a ref for the input
+  const inputRef = useRef<HTMLInputElement>(null);
 
-  // NEW: useEffect to apply focus when isFocused prop is true (for Storybook)
   useEffect(() => {
     if (isFocused && inputRef.current) {
-      inputRef.current.focus(); // Programmatically focus the input
+      inputRef.current.focus();
     } else if (!isFocused && inputRef.current) {
-      inputRef.current.blur(); // Remove focus if isFocused is false
+      inputRef.current.blur();
     }
-  }, [isFocused]); // Re-run effect when isFocused prop changes
+  }, [isFocused]);
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setQuery(event.target.value);
@@ -46,7 +45,7 @@ const SearchInput: React.FC<SearchInputProps> = ({
   return (
     <div className={styles.searchInputContainer}>
       <input
-        ref={inputRef} // NEW: Attach the ref to the input field
+        ref={inputRef}
         type="text"
         className={styles.inputField}
         placeholder={placeholder}

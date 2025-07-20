@@ -1,9 +1,6 @@
-// src/components/Logo/Logo.stories.tsx
 
-import React from 'react';
 import Logo from './Logo';
-import type { Meta, StoryObj } from '@storybook/react-webpack5'; // Adjust based on your framework
-
+import type { Meta, StoryObj } from '@storybook/react-webpack5'; 
 const meta: Meta<typeof Logo> = {
   title: 'Components/Logo',
   component: Logo,

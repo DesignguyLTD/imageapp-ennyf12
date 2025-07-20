@@ -1,32 +1,50 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEye, faDownload, faHeart, faLayerGroup, faShareSquare } from '@fortawesome/free-solid-svg-icons';
+import { faCopy } from '@fortawesome/free-regular-svg-icons';
 
-import styles from '../App.module.css';
-import { Photo } from '../types/pexels';
+import styles from './DownloadPage.module.css';
+import { Photo } from '../../types/pexels';
 
 interface DownloadPageParams {
   imageId: string;
   [key: string]: string | undefined;
 }
 
+interface DownloadPageProps {
+  storyImageId?: string;
+  storyImageData?: Photo | null;
+  storyLoading?: boolean;
+  storyError?: string | null;
+}
 
 const PEXELS_API_KEY = process.env.REACT_APP_PEXELS_API_KEY;
 
-const DownloadPage: React.FC = () => {
-  const { imageId } = useParams<DownloadPageParams>();
-  const [imageData, setImageData] = useState<Photo | null>(null);
-  const [loading, setLoading] = useState<boolean>(true);
-  const [error, setError] = useState<string | null>(null);
+const DownloadPage: React.FC<DownloadPageProps> = ({
+  storyImageId,
+  storyImageData,
+  storyLoading,
+  storyError,
+}) => {
+  const { imageId: paramImageId } = useParams<DownloadPageParams>();
+  const currentImageId = storyImageId || paramImageId;
+
+  const [imageData, setImageData] = useState<Photo | null>(storyImageData || null);
+  const [loading, setLoading] = useState<boolean>(storyLoading !== undefined ? storyLoading : true);
+  const [error, setError] = useState<string | null>(storyError !== undefined ? storyError : null);
 
   useEffect(() => {
+    if (storyImageId || storyLoading !== undefined || storyError !== undefined || storyImageData !== undefined) {
+      return;
+    }
+
     const fetchImageDetails = async () => {
-      if (!imageId) {
+      if (!currentImageId) {
         setError("Image ID not found in URL.");
         setLoading(false);
         return;
       }
-
 
       if (!PEXELS_API_KEY) {
         setError("Pexels API key not found. Please set REACT_APP_PEXELS_API_KEY in your .env.local file.");
@@ -38,15 +56,15 @@ const DownloadPage: React.FC = () => {
       setError(null);
 
       try {
-        const response = await fetch(`https://api.pexels.com/v1/photos/${imageId}`, {
+        const response = await fetch(`https://api.pexels.com/v1/photos/${currentImageId}`, {
           headers: {
-            Authorization: PEXELS_API_KEY, 
+            Authorization: PEXELS_API_KEY,
           },
         });
 
         if (!response.ok) {
           if (response.status === 404) {
-            throw new Error(`Image with ID ${imageId} not found.`);
+            throw new Error(`Image with ID ${currentImageId} not found.`);
           }
           const errorData = await response.json();
           throw new Error(`Failed to fetch image: ${errorData.error || response.statusText}`);
@@ -54,7 +72,7 @@ const DownloadPage: React.FC = () => {
 
         const data: Photo = await response.json();
         setImageData(data);
-      } catch (err: any) { 
+      } catch (err: any) {
         setError(err.message || 'An unknown error occurred while fetching image details.');
         console.error("Error fetching image details:", err);
       } finally {
@@ -63,9 +81,15 @@ const DownloadPage: React.FC = () => {
     };
 
     fetchImageDetails();
-  }, [imageId]);
+  }, [currentImageId, storyImageId, storyLoading, storyError, storyImageData]);
 
   const handleDownload = async () => {
+    if (storyImageId || storyLoading !== undefined || storyError !== undefined || storyImageData !== undefined) {
+      console.log(`Storybook: Download button clicked for Image ID: ${currentImageId}`);
+      alert('Storybook: Download simulated!');
+      return;
+    }
+
     if (!imageData?.src.large2x) {
       alert("Image source not available for download.");
       return;
@@ -92,6 +116,7 @@ const DownloadPage: React.FC = () => {
 
       document.body.removeChild(link);
       window.URL.revokeObjectURL(objectUrl);
+     
     } catch (error) {
       console.error('Error downloading image:', error);
       alert('Download failed. Please check the console for details.');
@@ -101,7 +126,7 @@ const DownloadPage: React.FC = () => {
   if (loading) {
     return (
       <div className={styles.downloadPage} >
-        <h2 className={styles.loading}>Loading image details...</h2>
+        <h2 className={styles.loadingMessage}>Loading image details...</h2>
       </div>
     );
   }
@@ -109,7 +134,7 @@ const DownloadPage: React.FC = () => {
   if (error) {
     return (
       <div className={styles.downloadPage} >
-        <h2 >Error: {error}</h2>
+        <h2 className={styles.errorMessage}>Error: {error}</h2>
         <p>Please try navigating back or searching for another image.</p>
       </div>
     );
@@ -118,7 +143,7 @@ const DownloadPage: React.FC = () => {
   if (!imageData) {
     return (
       <div className={styles.downloadPage}>
-        <h2>Image data not found.</h2>
+        <h2 className={styles.noDataMessage}>Image data not found.</h2>
       </div>
     );
   }
@@ -135,19 +160,18 @@ const DownloadPage: React.FC = () => {
 
           <div className={styles.creatorInfo}>
             <div className={styles.creatorAvatar}>
-              {/* This src is empty in your original code. You might need a dynamic src or a placeholder. */}
-              <img src="" alt="creator avatar" className={styles.creatorAvatar} />
+              <img src="https://via.placeholder.com/60/cccccc/000000?text=C" alt="creator avatar" className={styles.creatorAvatarImage} />
             </div>
             <div className={styles.creatorDetails}>
               <h2>{imageData.photographer}</h2>
-              <p>43444+ Elements</p> {/* This is hardcoded, consider if it should be dynamic */}
+              <p>43444+ Elements</p>
             </div>
           </div>
 
           <div className={styles.contentSection}>
             <div className={styles.productInfo}>
               <h2> Image</h2>
-              <p>Product ID: {imageData.id} <FontAwesomeIcon icon={['far', 'copy']} /></p>
+              <p>Product ID: {imageData.id} <FontAwesomeIcon icon={faCopy} /></p>
             </div>
             <p className={styles.description}>
               {imageData.alt || 'No specific description available for this image.'}
@@ -164,9 +188,9 @@ const DownloadPage: React.FC = () => {
           <p className={styles.downloadFormats}>Download in PNG, and Eps or AI-Formats</p>
 
           <div className={styles.detailsCounts}>
-            <p><FontAwesomeIcon icon={['far', 'eye']} />45.23K</p> {/* Hardcoded */}
-            <p><FontAwesomeIcon icon={['fas', 'download']} /> 19.23K</p> {/* Hardcoded */}
-            <p><FontAwesomeIcon icon={['far', 'heart']} />19.23K</p> {/* Hardcoded */}
+            <p><FontAwesomeIcon icon={faEye} />45.23K</p>
+            <p><FontAwesomeIcon icon={faDownload} /> 19.23K</p>
+            <p><FontAwesomeIcon icon={faHeart} />19.23K</p>
           </div>
 
           <button
@@ -178,9 +202,9 @@ const DownloadPage: React.FC = () => {
           </button>
 
           <div className={styles.connectButtons}>
-            <p><FontAwesomeIcon icon={['fas', 'layer-group']}/>Collection</p>
-            <p> <FontAwesomeIcon icon={['far', 'heart']}/> Favorite</p>
-            <p><FontAwesomeIcon icon={['far', 'share-square']}/> Share</p>
+            <p><FontAwesomeIcon icon={faLayerGroup}/>Collection</p>
+            <p> <FontAwesomeIcon icon={faHeart}/> Favorite</p>
+            <p><FontAwesomeIcon icon={faShareSquare}/> Share</p>
           </div>
         </div>
       </div>

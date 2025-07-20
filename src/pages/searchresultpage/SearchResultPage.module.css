@@ -1,0 +1,29 @@
+
+
+.page {
+  background-color: white; 
+  min-height: 100vh; 
+  box-sizing: border-box; 
+  padding-bottom: 50px; 
+  margin-top: 100px;
+}
+
+.mainh1 {
+  text-align: center;
+  margin: 2rem 0 1rem;
+  color: #333;
+}
+
+
+@media (max-width: 768px) {
+  .mainh1 {
+    font-size: 1.5rem;
+    margin: 1.5rem 0 0.8rem;
+  }
+  
+}
+@media (max-width: 468px) {
+ .page{
+  margin-top: 70px;
+ }
+}

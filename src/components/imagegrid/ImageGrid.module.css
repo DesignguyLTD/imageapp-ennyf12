@@ -1,0 +1,92 @@
+
+
+.message {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #555;
+  padding: 40px 20px;
+  width: 100%;
+}
+
+.errorMessage {
+  text-align: center;
+  font-size: 1.2rem;
+  color: red;
+  padding: 40px 20px;
+  width: 100%;
+}
+
+.gridContainer {
+    
+  padding: 2rem;
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; 
+}
+
+.imageGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 2rem;
+  justify-content: center; 
+  width: 100%; 
+  max-width: 1800px; 
+}
+
+.loadMoreButton {
+  display: block;
+  margin: 2rem auto;
+  padding: 1rem 2.5rem;
+  font-size: 1.1rem;
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
+}
+
+.loadMoreButton:disabled {
+  background-color: #a8d8b3;
+  cursor: not-allowed;
+}
+
+.loadMoreButton:hover:not(:disabled) {
+  background-color: #218838;
+}
+
+
+@media (max-width: 1024px) {
+  .imageGrid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); 
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .gridContainer {
+    padding: 1rem;
+  }
+  .imageGrid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); 
+    gap: 1rem;
+  }
+  .message,
+  .errorMessage {
+    font-size: 1rem;
+    padding: 20px 10px;
+  }
+  .loadMoreButton {
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .imageGrid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); 
+    gap: 0.8rem;
+  }
+}

@@ -1,9 +1,12 @@
+// src/pages/SearchResultPage/SearchResultPage.tsx
+
 import React, { useEffect } from 'react';
-import SearchBar from '../components/SearchBar';
-import ImageGrid from '../components/ImageGrid';
+// UPDATED: Import styles from its own CSS Module
+import styles from './SearchResultPage.module.css';
+import SearchBar from '../../components/searchinput/SearchInput'; // Adjust path based on your SearchInput
+import ImageGrid from '../../components/imagegrid/ImageGrid'; // Adjust path based on your ImageGrid
 import { useLocation, useNavigate } from 'react-router-dom';
-import usePexelsApi from '../hook/UsePexelApi';
-import styles from '../App.module.css'
+import usePexelsApi from '../../hook/UsePexelApi'; // Adjust path if needed
 
 const SearchResultPage: React.FC = () => {
   const { photos, loading, error, searchImages, loadMoreImages, hasMore, currentQuery } = usePexelsApi();
@@ -18,7 +21,9 @@ const SearchResultPage: React.FC = () => {
       const decodedQuery = decodeURIComponent(queryFromPath);
       searchImages(decodedQuery);
     } else if (!queryFromPath && !currentQuery) {
-
+      // Handle initial load or no query
+      // This might trigger a default search or display an empty state message
+      // Example: searchImages('popular'); // Search for a default query
     }
   }, [location.pathname, searchImages, currentQuery]);
 
@@ -32,7 +37,7 @@ const SearchResultPage: React.FC = () => {
     <div className={styles.page}>
       <SearchBar
         onSearch={handleSearchBarSearch}
-        initialQuery={currentQuery}
+        initialValue={decodeURIComponent(currentQuery || '')} // Pass current query to SearchBar
       />
       <main>
         <h1 className={styles.mainh1}>

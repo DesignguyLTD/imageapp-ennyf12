@@ -1,6 +1,4 @@
-// src/components/NavBar/NavBar.stories.tsx
 
-import React from 'react';
 import NavBar from './NavBar';
 import type { NavBarProps } from './NavBar';
 import type { Meta, StoryObj } from '@storybook/react-webpack5';
@@ -10,16 +8,19 @@ const meta: Meta<typeof NavBar> = {
   component: NavBar,
   tags: ['autodocs'],
   argTypes: {
-    isLoggedIn: { control: 'boolean', description: 'Simulates user logged-in state (for future UI changes).' },
+    forceMobileMenuOpen: { control: 'boolean', description: 'FOR STORYBOOK ONLY: Forces the mobile/tablet menu to be open on render.' },
+    
     activeNavLink: {
       control: { type: 'select' },
-      options: ['Graphics', 'Illustration', 'Images', '3D', 'GIFs', 'Music', 'NFTs', ''],
-      description: 'Highlights the currently active navigation link.',
+      options: ['Graphics', 'Illustration', 'Images', '3D', 'GIFs', 'Music', 'NFTs', ''], 
+      description: 'Highlights the currently active navigation link (e.g., current page).',
     },
-    forceMobileMenuOpen: {
-      control: 'boolean',
-      description: 'FOR STORYBOOK ONLY: Forces the mobile/tablet menu to be open on render.',
-    },
+    
+    loginButtonText: { control: 'text', description: 'Text displayed on the Login/Logout button.' },
+    
+    onLoginClick: { action: 'login button clicked', description: 'Callback when the Login/Logout button is clicked.' },
+    
+    isLoggedIn: { control: 'boolean', description: 'Simulates the user being logged in/out.' },
   },
   parameters: {
     layout: 'fullscreen',
@@ -42,11 +43,14 @@ export default meta;
 
 type Story = StoryObj<NavBarProps>;
 
+
+
 export const DesktopLayout: Story = {
   args: {
-    isLoggedIn: false,
-    activeNavLink: '',
     forceMobileMenuOpen: false,
+    activeNavLink: '',
+    loginButtonText: 'Login / Sign Up',
+    isLoggedIn: false,
   },
   parameters: {
     viewport: {
@@ -55,10 +59,11 @@ export const DesktopLayout: Story = {
   },
 };
 
-export const DesktopLayoutWithActiveLink: Story = {
+
+export const DesktopWithActiveLink: Story = {
   args: {
     ...DesktopLayout.args,
-    activeNavLink: 'Music',
+    activeNavLink: 'Music', 
   },
   parameters: {
     viewport: {
@@ -66,12 +71,29 @@ export const DesktopLayoutWithActiveLink: Story = {
     },
   },
 };
+
+
+export const DesktopLoggedIn: Story = {
+  args: {
+    ...DesktopLayout.args,
+    isLoggedIn: true, 
+    loginButtonText: 'Logout', 
+    
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'desktopLarge',
+    },
+  },
+};
+
 
 export const TabletLayoutClosedMenu: Story = {
   args: {
-    isLoggedIn: false,
-    activeNavLink: '',
     forceMobileMenuOpen: false,
+    activeNavLink: '',
+    loginButtonText: 'Login / Sign Up',
+    isLoggedIn: false,
   },
   parameters: {
     viewport: {
@@ -94,9 +116,10 @@ export const TabletLayoutOpenMenu: Story = {
 
 export const MobileLayoutClosedMenu: Story = {
   args: {
-    isLoggedIn: false,
-    activeNavLink: '',
     forceMobileMenuOpen: false,
+    activeNavLink: '',
+    loginButtonText: 'Login / Sign Up',
+    isLoggedIn: false,
   },
   parameters: {
     viewport: {
@@ -109,6 +132,20 @@ export const MobileLayoutOpenMenu: Story = {
   args: {
     ...MobileLayoutClosedMenu.args,
     forceMobileMenuOpen: true,
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'iphone6',
+    },
+  },
+};
+
+
+export const MobileLoggedInOpen: Story = {
+  args: {
+    ...MobileLayoutOpenMenu.args, 
+    isLoggedIn: true,
+    loginButtonText: 'Logout',
   },
   parameters: {
     viewport: {

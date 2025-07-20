@@ -1,108 +1,70 @@
-/* src/components/ImageCard/ImageCard.module.css */
 
-/* Base card styles */
-.card {
-  width: 250px;
-  height: 250px;
-  background-color: #f0f0f0;
+
+.imageCard {
+  border: 1px solid #eee;
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  cursor: pointer;
-  position: relative;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-/* Add active state (if not already present) */
-.card:active {
-  transform: translateY(0); /* Simulates pressed-in */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15); /* Smaller shadow */
-  filter: brightness(98%); /* Subtle darken */
-}
-
-/* NEW: Loading state for the card container */
-.card.loading {
-  background-color: #e0e0e0; /* Grey background for loading state */
-  cursor: default; /* Change cursor to default when loading */
-  pointer-events: none; /* Prevent clicks when loading */
-  box-shadow: none; /* Remove shadow when loading */
-  transform: none; /* Remove transforms (like hover) when loading */
-  /* Add shimmer animation to the placeholder */
-  animation: pulse-bg 1.5s infinite; /* Base animation for the loading card */
-}
-
-/* NEW: Styles for the loading placeholder div */
-.loadingPlaceholder {
-  width: 100%;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
   height: 100%;
-  background: linear-gradient(to right, #e0e0e0 0%, #f0f0f0 20%, #e0e0e0 40%); /* Shimmer gradient */
-  background-size: 200% 100%; /* Make gradient wider than element for shimmer */
-  animation: shimmer 1.5s infinite linear; /* Apply shimmer animation */
+  transition: transform 0.2s ease-in-out;
 }
 
-/* NEW: Shimmer animation keyframes */
-@keyframes shimmer {
-  0% {
-    background-position: -200% 0;
-  }
-  100% {
-    background-position: 200% 0;
-  }
+.imageCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
-/* Optional: Pulse animation keyframes for the entire card (less common if shimmer is on inner) */
-@keyframes pulse-bg {
-  0% { opacity: 1; }
-  50% { opacity: 0.8; }
-  100% { opacity: 1; }
+.imageCard:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
+  filter: brightness(98%);
 }
 
-
-/* Image styling */
 .image {
   width: 100%;
-  height: 100%;
+  height: 200px;
   object-fit: cover;
   display: block;
 }
-
-/* Overlay for titles */
-.overlay {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  padding: 15px;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
-  color: white;
-  text-align: left;
-  box-sizing: border-box;
+.textContainer {
+  padding: 0.75rem;
+  font-size: 0.9rem;
+  color: #555;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-decoration: none;
 }
 
-.title {
-  margin: 0;
-  font-size: 1.2em;
+.description {
+  margin: 0 0 0.5rem 0;
   font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-decoration: none;
 }
 
-/* Specific overlay for slogan */
-.sloganOverlay {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: white;
-  text-align: center;
-  width: 100%;
-}
-
-.slogan {
+.photographerInfo {
   margin: 0;
-  font-size: 1.1em;
-  font-weight: 500;
+  font-size: 0.8rem;
+  color: #777;
+  text-decoration: none;
 }
+.photographerLink {
+  color: #007bff;
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
+}
+
+.photographerLink:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
+
+
+

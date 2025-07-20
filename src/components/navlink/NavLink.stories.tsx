@@ -1,8 +1,6 @@
-// src/components/NavLink/NavLink.stories.tsx
 
-import React from 'react';
 import NavLink from './NavLink';
-import type { Meta, StoryObj } from '@storybook/react-webpack5'; // Adjust based on your framework
+import type { Meta, StoryObj } from '@storybook/react-webpack5'; 
 
 const meta: Meta<typeof NavLink> = {
   title: 'Components/NavLink',
@@ -41,7 +39,7 @@ export const Selected: Story = {
     children: 'Illustrations',
     href: '/illustrations',
     isSelected: true,
-    hasDropdown: true, // Example of selected with dropdown
+    hasDropdown: true,
   },
 };
 

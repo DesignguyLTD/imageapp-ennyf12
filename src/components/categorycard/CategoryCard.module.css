@@ -1,0 +1,75 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Space+Grotesk:wght@300..700&display=swap');
+
+.container {
+  position: relative;
+  max-width: 300px;
+  width: 100%;
+  height: 200px; 
+  border-radius: 16px;
+  overflow: hidden; 
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  font-family: 'Poppins', sans-serif; 
+}
+
+
+.container:hover {
+  transform: translateY(-5px); 
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+.container:active {
+  transform: translateY(0); 
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+  filter: brightness(98%); 
+}
+
+
+.image {
+  width: 100%;
+  height: 100%; 
+  object-fit: cover; 
+  display: block;
+}
+
+
+.text {
+  position: absolute;
+  top: 10%; 
+  left: 10%; 
+  color: white; 
+  padding: 8px 12px;
+  border-radius: 5px;
+  font-size: 19px;
+  font-weight: bold;
+  text-align: center;
+  
+}
+
+
+.textss { 
+  color: black;
+  
+  
+}
+
+
+@media (max-width: 768px) {
+  .container {
+    height: 180px; 
+  }
+  .text {
+    font-size: 16px;
+    padding: 6px 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    height: 150px; 
+  }
+  .text {
+    font-size: 14px;
+  }
+}

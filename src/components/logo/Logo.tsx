@@ -8,6 +8,7 @@ interface LogoProps {
   text?: string;
 }
 
+
 const Logo: React.FC<LogoProps> = ({ text = 'DesignGuy Img' }) => {
   return (
     <Link to='/' className={styles.logo}>

@@ -1,11 +1,10 @@
 import React from 'react';
 import  './App.module.css';
 import Navbar from './components/navbar/NavBar';
-import Hero from './components/hero/Hero';
-import AssetCategories from './components/assetcategories/AssetCategories';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import SearchResultPage from './pages/searchresultpage/SearchResultPage';
 import DownloadPage from './pages/downloadpage/DownloadPage';
+import Dashboard from './pages/dashoard/Dashboard';
 function App() {
   return (
     <Router>
@@ -17,9 +16,7 @@ function App() {
             path="/"
             element={
               <> 
-                <Hero />
-                <AssetCategories  />
-                
+                <Dashboard/>
               </>
             }
           />

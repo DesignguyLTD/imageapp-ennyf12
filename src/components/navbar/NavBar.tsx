@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import styles from './NavBar.module.css';
-import { Link } from 'react-router-dom';
+
 import Logo from '../logo/Logo';
 import Buttons from '../button/Buttons'; 
 
@@ -35,9 +35,9 @@ const NavBar: React.FC<NavBarProps> = ({
 
   return (
     <nav className={styles.navbar}>
-      <Link to='/' className={styles.logoWrapper}>
+      
         <Logo text="DesignGuy Img" />
-      </Link>
+      
 
       <button className={styles.menuIcon} onClick={toggleMenu} aria-expanded={isMobileMenuOpen} aria-label="Toggle navigation menu">
         {isMobileMenuOpen ? '✕' : '☰'}
